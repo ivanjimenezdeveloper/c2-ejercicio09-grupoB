@@ -9,6 +9,10 @@ const seriesConstantes = {
   juegoDeTronos: "Juego de Tronos",
 };
 
+const rutas = {
+  imagenPersonaje: "./img/",
+};
+
 const hablanLuchadores = (personajes) =>
   personajes
     .filter((personaje) => personaje instanceof Luchador)
@@ -109,6 +113,59 @@ const obtenerImagen = (personaje) => `img/${personaje.nombre}.jpg`;
 
 // insertar personaje
 
-const main = () => {};
+const anyadirDatosMetadata = (metadataElemento, rolPersonaje, personaje) => {
+  if (rolPersonaje === "Luchador") {
+    metadataElemento.querySelector(".armaNombre").textContent = personaje.arma;
+    metadataElemento.querySelector(".destrezaNumero").textContent =
+      personaje.destreza;
+  } else if (rolPersonaje === "Asesor") {
+    metadataElemento.querySelector(
+      ".asesoraPersonaje"
+    ).textContent = ` ${personaje.asesorado.nombre} ${personaje.asesorado.familia}`;
+  } else if (rolPersonaje === "Escudero") {
+    metadataElemento.querySelector(".peloteoNumero").textContent =
+      personaje.pelotismo;
+    metadataElemento.querySelector(
+      ".sirvePersonaje"
+    ).textContent = `${personaje.sirveA.nombre} ${personaje.sirveA.familia}`;
+  } else if (rolPersonaje === "Rey") {
+    metadataElemento.querySelector(".reinadoTiempoNumero").textContent =
+      personaje.anyosReinado;
+  }
+};
 
-main();
+const insertarPersonaje = (personaje) => {
+  const personajeElementoCopia = document
+    .querySelector(".personaje-dummy")
+    .cloneNode(true);
+  personajeElementoCopia.classList.remove("personaje-dummy");
+  const personajesElemento = document.querySelector(".personajes");
+
+  const personajeElemento = personajeElementoCopia.cloneNode(true);
+  const imagenElemento = personajeElemento.querySelector(".card-img-top");
+  const nombreElemento = personajeElemento.querySelector(".nombre");
+  const edadElemento = personajeElemento.querySelector(".edad .edadNumero");
+  const estado = personajeElemento.querySelector(".estado");
+  const metadataUnicas = personajeElemento.querySelector(
+    ".metadataPropiedadesUnicas"
+  );
+  imagenElemento.src = `${getNombreImagen(personaje)}`;
+  imagenElemento.alt = `${personaje.nombre} ${personaje.familia}`;
+
+  nombreElemento.textContent = `${personaje.nombre} ${personaje.familia}`;
+  edadElemento.textContent = personaje.edad;
+  filtrarMetadata(metadataUnicas, personaje.constructor.name);
+  anyadirDatosMetadata(metadataUnicas, personaje.constructor.name, personaje);
+  personajesElemento.append(personajeElemento);
+};
+
+const getNombreImagen = (personaje) =>
+  `${rutas.imagenPersonaje}${personaje.nombre.toLowerCase()}.jpg`;
+
+const main = (personajes) => {
+  for (const personaje of personajes) {
+    insertarPersonaje(personaje);
+  }
+};
+
+main(personajes);
