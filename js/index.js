@@ -47,6 +47,8 @@ const resumenPersonajes = (personajes) =>
 
 // aplicar funcion al boton habla
 
+// insertar personaje
+
 const main = () => {};
 
 main();
