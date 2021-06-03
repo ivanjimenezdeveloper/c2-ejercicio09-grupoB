@@ -39,6 +39,13 @@ const resumenPersonajes = (personajes) =>
 // anyadir emjoi segun rol
 
 // ocultar iconos de estado
+const determinarEstado = (emojiVivo, emojiMuerto, personaje) => {
+  if (personaje.vivo) {
+    emojiMuerto.classList.add("ocultar-emoji");
+    return;
+  }
+  emojiVivo.classList.add("ocultar-emoji");
+};
 
 // poner cabeza abajo
 

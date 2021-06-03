@@ -68,6 +68,9 @@ img.card-img-top {
 .personaje-dummy {
   display: none;
 }
+.ocultar-emoji {
+  display: none;
+}
 .comunicaciones {
   position: fixed;
   top: 0;
