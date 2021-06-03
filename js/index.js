@@ -154,8 +154,11 @@ const insertarPersonaje = (personaje) => {
 
   nombreElemento.textContent = `${personaje.nombre} ${personaje.familia}`;
   edadElemento.textContent = personaje.edad;
+
   filtrarMetadata(metadataUnicas, personaje.constructor.name);
   anyadirDatosMetadata(metadataUnicas, personaje.constructor.name, personaje);
+  determinarEstado(estado, imagenElemento, personaje);
+
   personajesElemento.append(personajeElemento);
 };
 
