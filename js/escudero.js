@@ -1,6 +1,6 @@
 /* eslint-disable import/extensions */
-import { Personaje } from "./personaje.js";
-import { Luchador } from "./luchador.js";
+import Personaje from "./personaje.js";
+import Luchador from "./luchador.js";
 
 export default class Escudero extends Personaje {
   sirveA;

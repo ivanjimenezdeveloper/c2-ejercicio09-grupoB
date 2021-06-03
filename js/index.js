@@ -42,7 +42,33 @@ const resumenPersonajes = (personajes) =>
 // poner cabeza abajo
 
 // filtrar los li de la clase metadata
+const filtrarMetadata = (metadataElemento, rolPersonaje) => {
+  const elementoMantener = [];
 
+  if (rolPersonaje === "Luchador") {
+    elementoMantener.push(metadataElemento.querySelector(".arma"));
+    elementoMantener.push(metadataElemento.querySelector(".destreza"));
+  } else if (rolPersonaje === "Asesor") {
+    elementoMantener.push(metadataElemento.querySelector(".asesora"));
+  } else if (rolPersonaje === "Escudero") {
+    elementoMantener.push(metadataElemento.querySelector(".peloteo"));
+    elementoMantener.push(metadataElemento.querySelector(".sirve"));
+  } else if (rolPersonaje === "Rey") {
+    elementoMantener.push(metadataElemento.querySelector(".reinadoTiempo"));
+  }
+
+  borrarHijosNodos(metadataElemento);
+
+  metadataElemento.append(...elementoMantener);
+
+  return metadataElemento;
+};
+
+const borrarHijosNodos = (padre) => {
+  while (padre.firstChild) {
+    padre.removeChild(padre.firstChild);
+  }
+};
 // aplicar funcion al boton muere y actualizar pj
 
 // aplicar funcion al boton habla

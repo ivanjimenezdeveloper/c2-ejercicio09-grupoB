@@ -1,7 +1,7 @@
-import { Rey } from "./rey.js";
-import { Luchador } from "./luchador.js";
-import { Asesor } from "./asesor.js";
-import { Escudero } from "./escudero.js";
+import  Rey  from "./rey.js";
+import  Luchador  from "./luchador.js";
+import  Asesor  from "./asesor.js";
+import  Escudero  from "./escudero.js";
 
 
 
