@@ -3,6 +3,7 @@ import Escudero from "./escudero.js";
 import Asesor from "./asesor.js";
 import Luchador from "./luchador.js";
 import Rey from "./rey.js";
+import { personajes } from "./personajes.js";
 
 const seriesConstantes = {
   juegoDeTronos: "Juego de Tronos",

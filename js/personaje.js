@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/prefer-default-export
-export class Personaje {
+export default class Personaje {
   nombre;
   familia;
   edad;
