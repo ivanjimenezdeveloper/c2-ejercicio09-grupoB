@@ -55,10 +55,9 @@ const ocultarIconosEstado = (estado, personaje) => {
   emojiVivo.classList.add("ocultar-emoji");
 };
 
+// cabeza abajo poner
 const girarCabezaPersonaje = (elementoImagen) =>
   elementoImagen.classList.add("rotar-imagen");
-
-// poner cabeza abajo
 
 // filtrar los li de la clase metadata
 const filtrarMetadata = (metadataElemento, rolPersonaje) => {
@@ -91,6 +90,22 @@ const borrarHijosNodos = (padre) => {
 // aplicar funcion al boton muere y actualizar pj
 
 // aplicar funcion al boton habla
+const personajeHabla = (personaje) => {
+  const comunicaciones = document.querySelector(".comunicaciones");
+  const comunicacionesTexto = document.querySelector(".comunicaciones p");
+  const imagenPersonaje = document.querySelector(".comunicaciones img");
+
+  setTimeout(() => {
+    comunicaciones.classList.remove("on");
+  }, 2000);
+
+  comunicaciones.classList.add("on");
+  comunicacionesTexto.textContent = personaje.comunicar();
+  imagenPersonaje.src = obtenerImagen(personaje);
+  imagenPersonaje.alt = `${personaje.nombre} ${personaje.familia}`;
+};
+
+const obtenerImagen = (personaje) => `img/${personaje.nombre}.jpg`;
 
 // insertar personaje
 
