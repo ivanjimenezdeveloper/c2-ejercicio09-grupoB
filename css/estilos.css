@@ -22,14 +22,14 @@ img.card-img-top {
   height: 200px;
 }
 .personaje-card {
-    position: relative;
-    border: none;
-    background-color: #331c0e;
-    color: #fff;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  position: relative;
+  border: none;
+  background-color: #331c0e;
+  color: #fff;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 .personaje .personaje-overlay {
-  border-radius: .25rem;
+  border-radius: 0.25rem;
   position: absolute;
   padding: 25px 15px;
   top: -100%;
@@ -61,7 +61,7 @@ img.card-img-top {
   height: 90px;
 }
 .personaje .accion {
-  background-color: #67331E;
+  background-color: #67331e;
   color: #fff;
   width: 80%;
 }
