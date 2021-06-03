@@ -42,6 +42,31 @@ const resumenPersonajes = (personajes) =>
 
 // anyadir emjoi segun rol
 
+const emojiRol = (rolPersonaje,elementoImagen,personaje) =>{
+  const emojiCorona = rolPersonaje.querySelector(".emojiCorona");
+  const emojiEspada = rolPersonaje.querySelector(".emojiEspada");
+  const emojiBirrete = rolPersonaje.querySelector(".emojiBirrete");
+  const emojiEscudo = rolPersonaje.querySelector(".emojiEscudo");
+
+  if(rolPersonaje === "Luchador"){
+    emojiEspada.classList.add(".emojiEspada");
+    return;
+  }else if(rolpersonaje === "Rey"){
+    emojiCorona.classList.add(".emojiCorona");
+    return;
+  }else if(rolPersonaje === "Escudero"){
+    emojiEscudo.classList(".emojiEscudo");
+    return;
+  }else if(rolPersonaje === "Asesor"){
+    emojiBirrete.classList("emojiBirrete");
+    return
+  }
+  
+}
+
+
+
+
 // ocultar iconos de estado
 const determinarEstado = (estado, elementoImagen, personaje) => {
   ocultarIconosEstado(estado, personaje);
@@ -66,10 +91,10 @@ const girarCabezaPersonaje = (elementoImagen) =>
 // filtrar los li de la clase metadata
 const filtrarMetadata = (metadataElemento, rolPersonaje) => {
   const elementoMantener = [];
-
   if (rolPersonaje === "Luchador") {
     elementoMantener.push(metadataElemento.querySelector(".arma"));
     elementoMantener.push(metadataElemento.querySelector(".destreza"));
+
   } else if (rolPersonaje === "Asesor") {
     elementoMantener.push(metadataElemento.querySelector(".asesora"));
   } else if (rolPersonaje === "Escudero") {
