@@ -43,7 +43,15 @@ const resumenPersonajes = (personajes) =>
 // anyadir emjoi segun rol
 
 // ocultar iconos de estado
-const determinarEstado = (emojiVivo, emojiMuerto, personaje) => {
+const determinarEstado = (estado, elementoImagen, personaje) => {
+  ocultarIconosEstado(estado, personaje);
+  girarCabezaPersonaje(elementoImagen);
+};
+
+const ocultarIconosEstado = (estado, personaje) => {
+  const emojiMuerto = estado.querySelector(".emojiMuerto");
+  const emojiVivo = estado.querySelector(".emojiVivo");
+
   if (personaje.vivo) {
     emojiMuerto.classList.add("ocultar-emoji");
     return;
@@ -51,7 +59,9 @@ const determinarEstado = (emojiVivo, emojiMuerto, personaje) => {
   emojiVivo.classList.add("ocultar-emoji");
 };
 
-// poner cabeza abajo
+// cabeza abajo poner
+const girarCabezaPersonaje = (elementoImagen) =>
+  elementoImagen.classList.add("rotar-imagen");
 
 // filtrar los li de la clase metadata
 const filtrarMetadata = (metadataElemento, rolPersonaje) => {
@@ -84,6 +94,22 @@ const borrarHijosNodos = (padre) => {
 // aplicar funcion al boton muere y actualizar pj
 
 // aplicar funcion al boton habla
+const personajeHabla = (personaje) => {
+  const comunicaciones = document.querySelector(".comunicaciones");
+  const comunicacionesTexto = document.querySelector(".comunicaciones p");
+  const imagenPersonaje = document.querySelector(".comunicaciones img");
+
+  setTimeout(() => {
+    comunicaciones.classList.remove("on");
+  }, 2000);
+
+  comunicaciones.classList.add("on");
+  comunicacionesTexto.textContent = personaje.comunicar();
+  imagenPersonaje.src = obtenerImagen(personaje);
+  imagenPersonaje.alt = `${personaje.nombre} ${personaje.familia}`;
+};
+
+const obtenerImagen = (personaje) => `img/${personaje.nombre}.jpg`;
 
 // insertar personaje
 
