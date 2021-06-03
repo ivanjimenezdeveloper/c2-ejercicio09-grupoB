@@ -3,6 +3,7 @@ import Escudero from "./escudero.js";
 import Asesor from "./asesor.js";
 import Luchador from "./luchador.js";
 import Rey from "./rey.js";
+import { personajes } from "./personajes.js";
 
 const seriesConstantes = {
   juegoDeTronos: "Juego de Tronos",
@@ -38,6 +39,13 @@ const resumenPersonajes = (personajes) =>
 // anyadir emjoi segun rol
 
 // ocultar iconos de estado
+const determinarEstado = (emojiVivo, emojiMuerto, personaje) => {
+  if (personaje.vivo) {
+    emojiMuerto.classList.add("ocultar-emoji");
+    return;
+  }
+  emojiVivo.classList.add("ocultar-emoji");
+};
 
 // poner cabeza abajo
 
