@@ -20,6 +20,7 @@ img.card-img-top {
   object-fit: cover;
   object-position: top;
   height: 200px;
+  transition: all 2s;
 }
 .personaje-card {
   position: relative;
