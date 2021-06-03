@@ -21,9 +21,6 @@ img.card-img-top {
   object-position: top;
   height: 200px;
 }
-.rotar-imagen {
-  transform: rotate(180deg);
-}
 .personaje-card {
   position: relative;
   border: none;
