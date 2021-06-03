@@ -33,6 +33,20 @@ const resumenPersonajes = (personajes) =>
         .sort((personajeA, personajeB) => personajeA.edad - personajeB.edad),
     }));
 
+// copiar personaje-dummy
+
+// anyadir emjoi segun rol
+
+// ocultar iconos de estado
+
+// poner cabeza abajo
+
+// filtrar los li de la clase metadata
+
+// aplicar funcion al boton muere y actualizar pj
+
+// aplicar funcion al boton habla
+
 const main = () => {};
 
 main();
